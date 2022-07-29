@@ -18,7 +18,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Expenses Chart Component](https://testerium-expenses_chart_component.netlify.app/)
+- Live Site URL: [Expenses Chart Component](https://testerium-expenses-chart-component.netlify.app/)
 
 ## My process
 
