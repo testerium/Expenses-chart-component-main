@@ -1,0 +1,268 @@
+@use './variables.scss' as *;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $cream_bg;
+    font-family: 'DM Sans';
+    font-style: normal;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+
+    .balance {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 540px;
+        height: 125px;
+        padding: 27px 32px 25px 32px;
+        background-color: $red;
+        border-radius: 20px;
+
+        .text {
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 23px;
+            color: $white;
+            padding-bottom: 8px;
+        }
+
+        .amount {
+            font-weight: 700;
+            font-size: 32px;
+            line-height: 42px;
+            color: $card_white;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+
+    .spendings {
+        width: 540px;
+        height: 511px;
+        margin-top: 24px;
+        padding: 32px 40px 40px 40px;
+        background-color: $card_white;
+        border-radius: 20px;
+
+        h1 {
+            font-weight: 700;
+            font-size: 32px;
+            line-height: 42px;
+            color: $brown_dark;
+        }
+
+        .current_month {
+            h2 {
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 23px;
+                color: $brown_medium;
+            }
+
+            p {
+                font-weight: 700;
+                font-size: 48px;
+                line-height: 62px;
+                color: $brown_dark;
+            }
+        }
+
+        .last_month {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            h3 {
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 23px;
+                text-align: right;
+                color: $brown_dark;
+            }
+
+            span {
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 23px;
+                color: $brown_medium;
+            }
+        }
+
+        .days {
+            margin-top: 66px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            text-align: center;
+            align-items: flex-end;
+
+            .popup {
+                display: none;
+                width: 75px;
+                height: 40px;
+                border-radius: 5px;
+                background-color: $brown_dark;
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 23px;
+                color: $card_white;
+
+                &.active {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+
+            .bar {
+                background-color: $red;
+                width: 50px;
+                border-radius: 5px;
+                margin-top: 8px;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: $red_hover;
+                }
+            }
+
+            p {
+                font-weight: 400;
+                font-size: 15px;
+                line-height: 20px;
+                text-align: center;
+                color: $brown_medium;
+                padding-top: 8px;
+            }
+
+            .highlite_color {
+                background-color: $cyan;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: $cyan_hover;
+                }
+            }
+        }
+
+    }
+
+    hr {
+        border: solid 1px $cream_bg;
+        border-radius: 1px;
+        margin: 32px auto;
+    }
+
+    .summary {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+/// MOBILE ///
+
+@media screen and (max-width: 767px) {
+    .container {
+        .balance {
+            width: 343px;
+            height: 97px;
+            padding: 20px 20px 20px 22px;
+            border-radius: 10px;
+
+            .text {
+                font-size: 15px;
+                line-height: 20px;
+                padding-bottom: 4px;
+            }
+
+            .amount {
+                font-size: 24px;
+                line-height: 31px;
+            }
+        }
+
+        .spendings {
+            width: 343px;
+            height: 421px;
+            margin-top: 16px;
+            padding: 24px 20px 24px 20px;
+            border-radius: 10px;
+
+            h1 {
+                font-size: 24px;
+                line-height: 31px;
+            }
+
+            .current_month {
+                h2 {
+                    font-size: 15px;
+                    line-height: 20px;
+                }
+
+                .amount {
+                    font-size: 30px;
+                    line-height: 39px;
+                }
+            }
+
+            .last_month {
+
+                h3 {
+                    font-size: 15px;
+                    line-height: 20px;
+                }
+
+                span {
+                    font-size: 15px;
+                    line-height: 20px;
+                }
+            }
+
+            .days {
+                margin-top: 62px;
+
+                .bar {
+                    width: 33px;
+                    border-radius: 3px;
+                    margin-top: 6px;
+                }
+
+                p {
+                    font-size: 12px;
+                    line-height: 16px;
+                    padding-top: 11px;
+                }
+            }
+        }
+
+        hr {
+            margin: 24px auto;
+        }
+    }
+
+}
