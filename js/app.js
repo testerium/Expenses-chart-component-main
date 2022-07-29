@@ -45,7 +45,7 @@ function drawColumn(element) {
     // Wylicz wysokość słupka
     let height = (element.amount * maxPixels) / maxAmount
 
-    // Zmień kolor słupka z bieżącego
+    // Zmień kolor słupka dla bieżącego dnia tygodnia
     let highlitedClass = ''
 
     const weekday = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
@@ -59,10 +59,28 @@ function drawColumn(element) {
 
     const column = `
     <div>
-        <div class="popup">${element.amount}</div>
+        <div class="popup">$${element.amount}</div>
         <div class="bar ${highlitedClass}" style="height: ${height}px;"></div>
         <p>${element.day}</p>
     </div>`
 
     container.innerHTML += column
 }
+
+// Wyświetl brązowy box z kwotą po kliknięciu
+const bars = document.querySelectorAll('.bar')
+bars.forEach(addPopupEvent)
+
+function addPopupEvent(element) {
+    element.addEventListener('click', function (event) {
+        // Wyczyść wszystkie popupy z klasą active
+        let allPopups = document.querySelectorAll('.popup')
+        allPopups.forEach(function (e) {
+            e.classList.remove('active')
+        })
+        // Dodaj klasę active do popupu nad klikniętym słupkiem/barem
+        let popup = event.target.parentElement.querySelector('.popup')
+        popup.classList.add('active')
+    })
+}
+
